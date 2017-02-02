@@ -22,8 +22,10 @@ struct node * make_node(int data)
 
 void free_node(struct node **node)
 {
-	free(*node);
-	*node = 0;
+	if (*node)	{
+		free(*node);
+		*node = 0;
+	}
 }
 
 void free_list(struct node **head)
