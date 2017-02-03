@@ -59,9 +59,9 @@ int insert(struct node **root, int data)
 int foo_preorder(struct node *root, func_node foo)
 {	
 	if (root) {
+		foo(root);	
 		foo_preorder(root->left, foo);
 		foo_preorder(root->right, foo);
-		foo(root);
 	}	
 	
 	return 0;
@@ -87,9 +87,9 @@ int foo_inorder(struct node *root, func_node foo)
 int foo_postorder(struct node *root, func_node foo)
 {	
 	if (root) {
-		foo(root);
 		foo_postorder(root->left, foo);
 		foo_postorder(root->right, foo);
+		foo(root);
 	}	
 	
 	return 0;
