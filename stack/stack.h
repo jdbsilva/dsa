@@ -47,4 +47,15 @@ struct node * pop(struct node **top)
 	return tmp;
 }
 
+void free_stack(struct node **top)
+{
+	struct node *tmp;	
+		
+	while (*top) {
+		tmp = *top;
+		*top = (*top)->next;
+		free_node(&tmp);
+	}
+}
+
 #endif
